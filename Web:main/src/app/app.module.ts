@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSelectModule, MatButtonModule} from '@angular/material';
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {HomepageComponent} from './homepage/homepage.component';
-
+import { NgProgressModule } from 'ngx-progressbar';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {HomepageComponent} from './homepage/homepage.component';
     HttpModule,
     FormsModule,
     HttpClientModule,
+    NgProgressModule,
     RouterModule.forRoot(
     [
       {
