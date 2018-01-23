@@ -7,7 +7,7 @@
             <td>
 
 
-                <a  class="signupbutn butn button1" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">signup</a> 
+                <a  class="signupbutn butn button1" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" (click)="signupclear()">signup</a> 
                </td>
             <th>
 
@@ -25,24 +25,37 @@
           </table>
         </div>
 
-        
+       
        
 <!--///////////////////////login form//////////////////////////-->
         <div id="id01" class="modal">
-  
+          
                 <form class="modal-content animate" action="/action_page.php">
                   <div class="imgcontainer">
+                      
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     
                   </div>
-              
+                 
                   <div class="container">
                     <br>
+                    <ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+             [speed]="200" [showSpinner]="false" [direction]="'leftToRightIncreased'"
+             [color]="'white'" [trickleSpeed]="250" [thick]="false" [ease]="'linear'"
+            ></ng-progress>
+
+
+                    <!--/////scuess message//////-->
+                    <div *ngIf ="signinSucessHidevalue" class="popupFieldSize alert-success box-msg" role="alert">
+                      <strong>{{loginPopUpSucessMessage}}</strong> 
+                    </div>
+                    <!--/////scuess message//////-->
+                    <!--/////error message//////-->
                       <div *ngIf ="hidevalue" class="popupFieldSize alert-danger box-msg" role="alert">
                           <strong>{{loginPopUpErrorMessage}}</strong> 
                   </div>
                   <br>
-                  
+                  <!--/////error message//////-->
                     
                     <label><b>Username</b></label>
                     <br>
@@ -85,6 +98,20 @@
           <p>Please fill in this form to create an account.</p>
           <hr class = "signupPopuphr">
       <br>
+      <!--/////scuess message//////-->
+
+      <div *ngIf ="signupSucessHidevalue" class="popupFieldSize alert-success box-msg" role="alert">
+        <strong>{{signupPopUpSucessMessage}}</strong> 
+      </div>
+      <br>
+     <!--/////scuess message//////-->
+      <!--/////failure message//////-->
+
+      <div *ngIf ="signupFailureHidevalue" class="popupFieldSize alert-danger box-msg" role="alert">
+        <strong>{{signupPopUpFailureMessage}}</strong> 
+      </div>
+      <br>
+     <!--/////failure message//////-->
           <label><b>Email</b></label>
           <br>
           <input type="text"  class = "signupPopupFieldSize" placeholder="Enter usernmae" name="email" [(ngModel)]="signup.username"  required>
