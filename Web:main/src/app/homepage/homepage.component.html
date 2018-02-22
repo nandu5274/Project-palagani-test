@@ -1,3 +1,36 @@
-<h1>
-  homepage works!
-</h1>
+<div class="w3-container  headersize sticky">
+<div class = "headername">
+    <table style="width:100%">
+      <th style="width:05%; height: 10%; text-align: center; margin-bottom: 0%; vertical-align:middle ;">
+          <div  onclick="document.getElementById('mySidenav').style.width = '150px';" >
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+      </th>
+      <h1 style="text-align: left; margin-bottom:18px; color: #DF744A;">WELCOME</h1>
+
+<th class=" signout">
+    <a class="signout butn button1" (click) = "signoutevent()">signout</a> 
+</th>
+
+
+
+
+
+
+<!-- side menu bar -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('mySidenav').style.width = '0px';" >&times;</a>
+    <a class= "sidenavlist"  (click) = "hotelevent()">hotel</a>
+    <a href="#" class= "sidenavlist" >Services</a>
+    <a href="#" class= "sidenavlist" >Clients</a>
+    <a href="#" class= "sidenavlist" >Contact</a>
+  </div>
+  <!-- side menu bar -->
+</table>
+</div>
+</div>
+<div>
+    <router-outlet> </router-outlet>
+</div>

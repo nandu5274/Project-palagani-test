@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSelectModule, MatButtonModule} from '@angular/material';
@@ -12,9 +11,12 @@ import { AppService } from './AppService.service';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
-import {HomepageComponent} from './homepage/homepage.component';
 import { NgProgressModule } from 'ngx-progressbar';
-
+import { GraphpageComponent } from './graphpage/graphpage.component';
+import { Homepagemodule } from './homepage/homepage.module';
+import { HotelComponent } from './hotel/hotel.component';
+import { Daterangepicker } from 'ng2-daterangepicker';
+import { MatDatepicker, MatDatepickerModule,MatNativeDateModule,MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { NgProgressModule } from 'ngx-progressbar';
     HeaderComponent,
     FooterComponent,
     WelcomepageComponent,
-    HomepageComponent,
+    HotelComponent,
+    
+ 
+    
+    
 
     
 
@@ -37,22 +43,31 @@ import { NgProgressModule } from 'ngx-progressbar';
     FormsModule,
     HttpClientModule,
     NgProgressModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    Daterangepicker,
     RouterModule.forRoot(
     [
       {
         path:'home',
-        component: HomepageComponent
+        loadChildren: './homepage/homepage.module#Homepagemodule' 
 
       },
       {
         path:'welcome',
         component: WelcomepageComponent
       },
+
+      
       {path: '',redirectTo:'/welcome',pathMatch:'full'},
       {path: '**',redirectTo:'/welcome',pathMatch:'full'}
+
     ]
-    )
+    ),
+    Homepagemodule
   ],
+
   providers: [AppService],
   bootstrap: [AppComponent]
 })
