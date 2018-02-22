@@ -1,0 +1,51 @@
+<div class="headers sticky" >
+  <a  class="logo">TOTAL PROFIT : &#8377; {{sumamount}} /- </a>
+  <a  class="NAME">RESTARUNT</a>
+  <div class="header-right">
+    <a >ADD</a>
+    <a >EDIT</a>
+    <a>DELETE</a>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+  <input type="text" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event, daterange)" />
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+
+<br>
+<br>
+
+<div class="container ex1" >
+  <table class="table table-striped centerTable TFtable"  id="table1">
+    <thead class = "sticky"> 
+      <tr >
+        <th>s.no</th>
+        <th>createdAt</th>
+        <th>totalAmount</th>
+        <th>usedAmount</th>
+        <th>profitAmount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let HotelRecords of HotelRecords; let i = index">
+        <td scope="row">{{i+1}}</td>
+        <td>{{HotelRecords.createdAt}}</td>
+        <td>{{HotelRecords.totalAmount}}</td>
+        <td>{{HotelRecords.usedAmount}}</td>
+        <td>{{HotelRecords.profitAmount}}</td>
+        
+      </tr>
+
+    </tbody>
+
+  </table>
+</div>
+
+<br>
+<br>

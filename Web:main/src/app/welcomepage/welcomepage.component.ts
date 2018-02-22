@@ -16,7 +16,6 @@ export class WelcomepageComponent implements OnInit {
   filedata: any;
   loginUser = {
 
-    
     userName: "",
     acesstype: "N",
     password: ""
