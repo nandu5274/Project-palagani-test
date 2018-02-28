@@ -1,27 +1,42 @@
+
+
 <div class="headers sticky" >
   <a  class="logo">TOTAL PROFIT : &#8377; {{sumamount}} /- </a>
-  <a  class="NAME">RESTARUNT</a>
+  <a  class="NAME" (click)= "reloadGetHotelRecordsBydate()">RESTARUNT </a>
   <div class="header-right">
-    <a >ADD</a>
-    <a >EDIT</a>
+    <a  data-toggle="modal" data-target="#myModal" #addOrderbtn  (click) =  "addOrderButtonClear()"  >ADD</a>
+    <a data-toggle="modal" data-target="#myModal2" data-backdrop="false" >EDIT</a>
     <a>DELETE</a>
   </div>
 </div>
+<!-- progree bar -->
+<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+[speed]="200" [showSpinner]="false" [direction]="'leftToRightIncreased'"
+[color]="'orange'" [trickleSpeed]="250" [thick]="false" [ease]="'linear'"
+></ng-progress>
+<!-- progree bar -->
+<br>
+<br>
 
-<br>
-<br>
+
+
+
+
+
 
 
 <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
   <input type="text" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event, daterange)" />
-  <button type="submit"><i class="fa fa-search"></i></button>
+  <button type="submit" (click)="buttonsearch()"><i class="fa fa-search"></i></button>
 </form>
 
 
+
+
 <br>
 <br>
 
-<div class="container ex1" >
+<div class="container ex1 " >
   <table class="table table-striped centerTable TFtable"  id="table1">
     <thead class = "sticky"> 
       <tr >
@@ -45,7 +60,84 @@
     </tbody>
 
   </table>
+
 </div>
 
 <br>
 <br>
+
+<!--//////////// hidden button used to open addorder sucess poopup ///////////////// -->
+<button id="openModal" #openSucesspopup [hidden]="true" 
+  data-toggle="modal" data-target="#myModal2" data-backdrop="false"></button>
+  <!--//////////// hidden button used to open addorder sucess poopup ///////////////// -->
+
+<!--//////////// hidden button used to open addorder warning poopup ///////////////// -->
+<button id="openModal2" #openAddOrderWaringPopupBtn [hidden]="true" 
+  data-toggle="modal" data-target="#myModalAddOrderWarning" data-backdrop="false"></button>
+  <!--//////////// hidden button used to open addorder warning poopup ///////////////// -->
+
+<!--//////////// popup ///////////////// -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-lg aligncenter">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Order</h4>
+      </div>
+      <div class="modal-body">
+
+                    <input type="text" #singleDatePicker class = "popupFieldSize" name="daterangeInput" daterangepicker [options]="singlePicker" (selected)="singleSelect($event)" [(ngModel)] = "clearCurrentdate"/>
+                    <input type="text" class = "popupFieldSize" placeholder="Total amount" name="psw" [(ngModel)] = "addPopupTotalAmount" required>
+                    <input type="text" class = "popupFieldSize" placeholder="paid amount" name="uname" [(ngModel)] = "addPopupPaidAmount" (ngModelChange)="sum()"  required  >
+                    <input type="text" class = "popupFieldSize" placeholder="profit amount" name="uname"  [(ngModel)] = "addPopupProfitAmount"   required  >
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-default" (click) =  "addOrderEvent()" *ngIf="processingData">
+             Add order
+            </button>
+
+          <button class="btn btn-default"  *ngIf="!processingData" >
+              <i class="fa fa-spinner fa-spin "></i>Loading
+            </button>
+        
+        <button type="button" #fileInput class="btn btn-default" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//////////// popup ///////////////// -->
+
+<!-- sucesss addOrder popup-->
+
+  <div class="modal fade" id="myModal2"   role="dialog">
+    <div class="modal-dialog aligncenter2">
+      <div >
+  
+        <div class="alert alert-success alert-dismissible">
+          <a href="#" class="close" #closeSucesspopup data-dismiss="modal" aria-label="close">&times;</a>
+          <strong>Success!</strong> Order created sucessfully.
+        </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- sucesss addOrder  popup-->
+
+<!-- warning addOrder popup-->
+
+<div class="modal fade" id="myModalAddOrderWarning"   role="dialog">
+  <div class="modal-dialog aligncenter2">
+    <div >
+
+      <div class="alert alert-warning alert-dismissible">
+        <a href="#" class="close"  #closeAddOrderWarningpopup data-dismiss="modal" aria-label="close">&times;</a>
+        <strong>Duplicate!</strong> Order already created for this date
+      </div>
+      </div>
+  </div>
+</div>
+
+
+  
+
+    <!-- warning  addOrder popup-->

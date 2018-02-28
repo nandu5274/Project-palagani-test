@@ -11,6 +11,8 @@ import {DataTableModule} from "angular2-datatable";
 import { Daterangepicker } from 'ng2-daterangepicker';
 import { FormsModule } from '@angular/forms';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material';
+import { NgProgressModule } from 'ngx-progressbar';
+
 @NgModule({
   declarations: [
    
@@ -43,6 +45,7 @@ import { MatDatepicker, MatDatepickerModule } from '@angular/material';
     Daterangepicker,
     FormsModule,
     MatDatepickerModule,
+    NgProgressModule,
 
 
     

@@ -3,7 +3,10 @@ import { Http } from '@angular/http';
 import { AppService } from '../AppService.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as constants from '../constants';
 import { NgProgress } from 'ngx-progressbar';
+
+
 @Component({
   selector: 'app-welcomepage',
   templateUrl: './welcomepage.component.html',
@@ -29,27 +32,29 @@ export class WelcomepageComponent implements OnInit {
     repeatPassword: "",
 
   }
-  private loginPopUpErrorMessage: any;
-  private signupPopUpErrorMessage:any;
-  private signupPopUpSucessMessage:any;
-  private hidevalue: Boolean;
-  private signupSucessHidevalue: Boolean;
-  private signupFailureHidevalue:Boolean;
-  private signupPopUpFailureMessage:any;
-  private signinSucessHidevalue: Boolean;
-  private loginPopUpSucessMessage:any;
+  public loginPopUpErrorMessage: any;
+  public signupPopUpErrorMessage:any;
+  public signupPopUpSucessMessage:any;
+  public hidevalue: Boolean;
+  public signupSucessHidevalue: Boolean;
+  public signupFailureHidevalue:Boolean;
+  public signupPopUpFailureMessage:any;
+  public signinSucessHidevalue: Boolean;
+  public loginPopUpSucessMessage:any;
   ///////// variables///////////////////
 
   //////urls///////////
 
-  private checkUrl: string = "http://localhost:8081/palagani/checkAccess/nandu";
-  private loginUrl: string = "http://localhost:8081/palagani/signin";
-  private signupUrl: string = "http://localhost:8081/palagani/signup";
+  private checkUrl: string = constants.PALAGANI_URL+"/palagani/checkAccess/nandu";
+  private loginUrl: string = constants.PALAGANI_URL+ "/palagani/signin";
+  private signupUrl: string = constants.PALAGANI_URL+"/palagani/signup";
   //////urls///////////
 
 
 
-  constructor(public dataService: AppService, private router: Router,public ngProgress: NgProgress) {
+  constructor( public ngProgress: NgProgress,public dataService: AppService,
+    private router: Router
+    ) {
 
     /*
      this.dataService.Get(this.checkUrl).subscribe(users =>{

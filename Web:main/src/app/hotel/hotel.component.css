@@ -200,3 +200,86 @@ form.example::after {
   box-sizing: border-box;
  
 }
+
+.aligncenter{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+ 
+  height: 200px;
+
+  
+}
+
+.aligncenter2{
+  position: absolute;
+  
+  top: 33px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+ 
+  height: 292px;
+
+  
+}
+
+
+.popupFieldSize
+{
+  
+  padding: 10px;
+    margin: 1px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+
+}
+
+
+.popupNameTag{
+  width: 87%;
+  padding: 6px;
+}
+
+
+.buttonload {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 24px; /* Some padding */
+  font-size: 16px; /* Set a font-size */
+}
+
+/* Add a right margin to each icon */
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
+
+.popupFieldDateSize{
+  padding: 0px 10px 0px 5px;
+  margin: 1px 26px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+}
+
+.onlayer
+{
+
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 100;
+  position:relative;
+  margin: 0 auto;
+  top: 120px; 
+  width: 70%;
+  
+
+}

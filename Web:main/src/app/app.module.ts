@@ -41,12 +41,14 @@ import { MatDatepicker, MatDatepickerModule,MatNativeDateModule,MatInputModule} 
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
+
     HttpClientModule,
     NgProgressModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
     Daterangepicker,
+
     RouterModule.forRoot(
     [
       {

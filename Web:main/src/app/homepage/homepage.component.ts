@@ -21,6 +21,7 @@ export class HomepageComponent implements OnInit {
 
 signoutevent() {
 
+  this.router.navigate(['welcome']);
 }
 
 testevent()
@@ -35,5 +36,13 @@ hotelevent()
   this.router.navigate(['home/hotel']);
   document.getElementById('mySidenav').style.width = '0px';
 }
+
+homepageEvent()
+{
+  this.router.navigate(['home/graph']);
+  document.getElementById('mySidenav').style.width = '0px';
+}
+
+
 
 }
